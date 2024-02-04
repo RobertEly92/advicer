@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
-
 import 'package:advicer/domain/entities/advice_entity.dart';
 import 'package:advicer/infrastructure/exceptions/exceptions.dart';
 import 'package:advicer/infrastructure/models/advice_model.dart';
@@ -12,7 +10,10 @@ abstract class AdvicerRemoteDatasource {
 }
 
 class AdvicerRemoteDatasourceImpl implements AdvicerRemoteDatasource {
-  final http.Client client = http.Client();
+  final http.Client client;
+  
+  AdvicerRemoteDatasourceImpl({required this.client});
+
   @override
   Future<AdviceEntity> getRandomAdviceFromApi() async {
     final response = await client
