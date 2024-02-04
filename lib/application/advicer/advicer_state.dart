@@ -13,4 +13,7 @@ final class AdvicerStateLoaded extends AdvicerState {
 
 }
 
-final class AdvicerStateError extends AdvicerState {}
+final class AdvicerStateError extends AdvicerState {
+  final String message;
+  AdvicerStateError({required this.message});
+}
