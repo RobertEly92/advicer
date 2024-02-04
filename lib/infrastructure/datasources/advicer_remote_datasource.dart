@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:advicer/domain/entities/advice_entity.dart';
+import 'package:advicer/infrastructure/exceptions/exceptions.dart';
 import 'package:advicer/infrastructure/models/advice_model.dart';
 import 'package:http/http.dart' as http;
 
@@ -18,7 +19,11 @@ class AdvicerRemoteDatasourceImpl implements AdvicerRemoteDatasource {
         .get(Uri.parse('https://api.adviceslip.com/advice'), headers: {
       'Content-Type': 'application/json',
     });
-    final responseBody = jsonDecode(response.body);
-    return AdviceModel.fromJson(responseBody['slip']);
+    if (response.statusCode != 200) {
+      throw (ServerException());
+    } else {
+      final responseBody = jsonDecode(response.body);
+      return AdviceModel.fromJson(responseBody['slip']);
+    }
   }
 }
