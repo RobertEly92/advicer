@@ -43,7 +43,7 @@ void main() {
       verify(mockAdvicerRepository.getAdviceFromAPI());
       verifyNoMoreInteractions(mockAdvicerRepository);
     });
-        test('should return the same GeneralFailure as repository', () async {
+    test('should return the same GeneralFailure as repository', () async {
       //arrange
       when(mockAdvicerRepository.getAdviceFromAPI())
           .thenAnswer((_) async => Left(GeneralFailure()));
@@ -54,6 +54,5 @@ void main() {
       verify(mockAdvicerRepository.getAdviceFromAPI());
       verifyNoMoreInteractions(mockAdvicerRepository);
     });
-
   });
 }

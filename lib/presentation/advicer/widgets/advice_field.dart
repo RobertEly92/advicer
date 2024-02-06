@@ -6,17 +6,23 @@ class AdviceField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      final themeData = Theme.of(context);
+    final themeData = Theme.of(context);
     return Material(
-        elevation: 20,
-        borderRadius: BorderRadius.circular(15),
-        child: Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: themeData.colorScheme.primary),
-          child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20), child: Text(textAlign: TextAlign.center,'" $advice "', style: themeData.textTheme.bodyLarge,),),
+      elevation: 20,
+      borderRadius: BorderRadius.circular(15),
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: themeData.colorScheme.primary),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+          child: Text(
+            textAlign: TextAlign.center,
+            '" $advice "',
+            style: themeData.textTheme.bodyLarge,
+          ),
         ),
-      );
+      ),
+    );
   }
 }
