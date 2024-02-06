@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:advicer/infrastructure/datasources/advicer_remote_datasource.dart';
 import 'package:advicer/infrastructure/exceptions/exceptions.dart';
 import 'package:advicer/infrastructure/models/advice_model.dart';

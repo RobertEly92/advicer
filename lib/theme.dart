@@ -4,7 +4,7 @@ class AppTheme {
   AppTheme._();
 
   static final Color _lightPrimaryColor = Colors.blueGrey.shade50;
-  static final Color _lightPrimaryVariantColor = Colors.blueGrey.shade800;
+  //static final Color _lightPrimaryVariantColor = Colors.blueGrey.shade800;
   static final Color _lightOnPrimaryColor = Colors.blueGrey.shade200;
   static final Color _lightTextColorPrimary = Colors.black;
   static final Color _lightAppbarColor = Colors.blue;
@@ -13,7 +13,7 @@ class AppTheme {
   static final TextStyle _lightBodyTheme = TextStyle(color: _lightTextColorPrimary, fontFamily: "Rubik", fontStyle: FontStyle.italic, fontWeight: FontWeight.bold, fontSize: 16);
   
   static final Color _darkPrimaryColor = Colors.blueGrey.shade900;
-  static final Color _darkPrimaryVariantColor = Colors.black;
+ // static final Color _darkPrimaryVariantColor = Colors.black;
   static final Color _darkOnPrimaryColor = Colors.blueGrey.shade300;
   static final Color _darkTextColorPrimary = Colors.white;
   static final Color _darkAppbarColor = Colors.blueGrey.shade800;

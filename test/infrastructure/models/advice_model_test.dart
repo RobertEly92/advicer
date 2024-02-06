@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:advicer/domain/entities/advice_entity.dart';
 import 'package:advicer/infrastructure/models/advice_model.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
 
 import '../../fixtures/fixture_reader.dart';
 
