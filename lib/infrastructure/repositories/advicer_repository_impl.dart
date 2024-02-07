@@ -6,6 +6,8 @@ import 'package:advicer/infrastructure/exceptions/exceptions.dart';
 import 'package:dartz/dartz.dart';
 
 class AdvicerRepositoryImpl implements AdvicerRepository {
+//TODO füge localDatasource hinzu - speichere Advice in local - get advice aus local und nutze das
+
   final AdvicerRemoteDatasource advicerRemoteDatasource;
   AdvicerRepositoryImpl({required this.advicerRemoteDatasource});
 

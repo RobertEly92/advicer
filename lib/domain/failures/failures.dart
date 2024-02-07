@@ -15,3 +15,9 @@ class GeneralFailure extends Failure with EquatableMixin{
   
   List<Object?> get props => [];
 }
+
+class CacheFailure extends Failure with EquatableMixin{
+  @override
+  
+  List<Object?> get props => [];
+}
