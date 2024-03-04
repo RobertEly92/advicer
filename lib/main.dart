@@ -1,15 +1,18 @@
 import 'package:advicer/application/advicer/advicer_bloc.dart';
+import 'package:advicer/application/theme/theme_service.dart';
 import 'package:advicer/presentation/advicer/widgets/advicer_page.dart';
 import 'package:advicer/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:advicer/injection.dart' as di; //di = dependency injection
+import 'package:advicer/injection.dart' as di;
+import 'package:provider/provider.dart'; //di = dependency injection
 
-
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await di.init();
-  runApp(const MainApp());
+  await di.sl<ThemeService>().init();
+  runApp(ChangeNotifierProvider(
+      create: (context) => di.sl<ThemeService>(), child: MainApp()));
 }
 
 class MainApp extends StatelessWidget {
@@ -17,14 +20,18 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Advicer',
-        theme: AppTheme.lightTheme,
-        darkTheme: AppTheme.darkTheme,
-        themeMode: ThemeMode.dark,
-        home: BlocProvider(
-          create: (context) => di.sl<AdvicerBloc>(),
-          child: const AdvicerPage(),
-        ));
+    return Consumer<ThemeService>(
+      builder: (context, themeService, child) {
+        return MaterialApp(
+            title: 'Advicer',
+            theme: AppTheme.lightTheme,
+            darkTheme: AppTheme.darkTheme,
+            themeMode: themeService.isDarkModeOn? ThemeMode.dark : ThemeMode.light,
+            home: BlocProvider(
+              create: (context) => di.sl<AdvicerBloc>(),
+              child: const AdvicerPage(),
+            ));
+      },
+    );
   }
 }

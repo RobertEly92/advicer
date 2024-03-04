@@ -1,9 +1,11 @@
 import 'package:advicer/application/advicer/advicer_bloc.dart';
+import 'package:advicer/application/theme/theme_service.dart';
 import 'package:advicer/presentation/advicer/widgets/advice_field.dart';
 import 'package:advicer/presentation/advicer/widgets/custom_button.dart';
 import 'package:advicer/presentation/advicer/widgets/error_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 
 class AdvicerPage extends StatelessWidget {
   const AdvicerPage({super.key});
@@ -19,6 +21,9 @@ class AdvicerPage extends StatelessWidget {
           style: themeData.textTheme.displayLarge,
         ),
         centerTitle: true,
+        actions: [Switch(value: Provider.of<ThemeService>(context).isDarkModeOn, onChanged: (_){
+            Provider.of<ThemeService>(context, listen: false).toggleTheme();
+        })],
       ),
       body: Center(
           child: Padding(
