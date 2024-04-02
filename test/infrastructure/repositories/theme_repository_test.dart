@@ -22,10 +22,10 @@ void main() {
   });
 
   group('setThemeMode', () {
-    final t_themeMode = true;
+    const t_themeMode = true;
     test('should call function to cache thememode in localdatasource', () {
       //arrange
-      when(mockThemeLocalDatasource.cacheThemeData(mode: anyNamed("mode")))
+      when(mockThemeLocalDatasource.cacheThemeData(mode: anyNamed('mode')))
           .thenAnswer((_) async => true);
       //act
       themeRepository.setThemeMode(mode: t_themeMode);
@@ -36,7 +36,7 @@ void main() {
   });
 
   group('getThemeMode', () {
-    final t_themeMode = true;
+    const t_themeMode = true;
     test(
         'should return thememode if cached data is present from localdatasource',
         () async {
@@ -47,7 +47,7 @@ void main() {
       final result = await themeRepository.getThemeMode();
       //assert
       verify(mockThemeLocalDatasource.getCachedThemeData());
-      expect(result, Right(t_themeMode));
+      expect(result, const Right(t_themeMode));
       verifyNoMoreInteractions(mockThemeLocalDatasource);
     });
 

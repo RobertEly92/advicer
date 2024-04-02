@@ -1,6 +1,5 @@
 part of 'advicer_bloc.dart';
 
-@immutable
 sealed class AdvicerState {}
 
 final class AdvicerInitial extends AdvicerState with EquatableMixin{

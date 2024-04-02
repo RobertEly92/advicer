@@ -20,15 +20,15 @@ void main() {
   });
 
   group('getAdviceUsecase', () {
-    final t_Advice = AdviceEntity(advice: 'Test', id: 1);
+    final tAdvice = AdviceEntity(advice: 'Test', id: 1);
     test('should return the same advice as repository', () async {
       //arrange
       when(mockAdvicerRepository.getAdviceFromAPI())
-          .thenAnswer((_) async => Right(t_Advice));
+          .thenAnswer((_) async => Right(tAdvice));
       //act
       final result = await advicerUsecases.getAdviceUsecase();
       //assert
-      expect(result, Right(t_Advice));
+      expect(result, Right(tAdvice));
       verify(mockAdvicerRepository.getAdviceFromAPI());
       verifyNoMoreInteractions(mockAdvicerRepository);
     });

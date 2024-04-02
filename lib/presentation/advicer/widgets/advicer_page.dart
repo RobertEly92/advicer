@@ -33,7 +33,6 @@ class AdvicerPage extends StatelessWidget {
               child: Center(
             child: BlocBuilder<AdvicerBloc, AdvicerState>(
                 builder: (context, state) {
-                  print(state);
                   if (state is AdvicerInitial) {
                     return Text(
                       'Ur advice is waiting for u',

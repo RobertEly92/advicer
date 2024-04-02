@@ -21,17 +21,17 @@ void main() {
 
   //arrange functions
   void setUpMockClientSuccess200() {
-    when(mockClient.get(any, headers: anyNamed("headers"))).thenAnswer(
+    when(mockClient.get(any, headers: anyNamed('headers'))).thenAnswer(
         (_) async => http.Response(fixture('advice_response.json'), 200));
   }
 
   void setUpMockClientFailure() {
-    when(mockClient.get(any, headers: anyNamed("headers")))
+    when(mockClient.get(any, headers: anyNamed('headers')))
         .thenAnswer((_) async => http.Response('something went wrong', 404));
   }
 
   group('getRandomAdviceFromApi', () {
-    final t_adviceModel = AdviceModel(advice: 'test', id: 1);
+    final tAdvicemodel = AdviceModel(advice: 'test', id: 1);
     test(
         'should perform get request on a URL with advice being the endpoint and header application/json',
         () {
@@ -54,7 +54,7 @@ test(
       final result = await advicerRemoteDatasource.getRandomAdviceFromApi();
       
       //assert
-      expect(result, t_adviceModel);
+      expect(result, tAdvicemodel);
     });
   test(
         'should throw serverexception if statuscode is not 200',

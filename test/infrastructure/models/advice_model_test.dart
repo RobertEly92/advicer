@@ -7,11 +7,11 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../fixtures/fixture_reader.dart';
 
 void main() {
-  final t_adviceModel = AdviceModel(advice: 'test', id: 1);
+  final tAdvicemodel = AdviceModel(advice: 'test', id: 1);
 
   test('model should be subclass of AdviceEntity', () {
 //assert
-    expect(t_adviceModel, isA<AdviceEntity>());
+    expect(tAdvicemodel, isA<AdviceEntity>());
   });
 
   group('fromJson factory', () { 
@@ -23,7 +23,7 @@ void main() {
       //act
       final result = AdviceModel.fromJson(jsonMap);
       //assert
-      expect(result,t_adviceModel);
+      expect(result,tAdvicemodel);
     });
   });
 }

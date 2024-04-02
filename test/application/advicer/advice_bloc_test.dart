@@ -30,11 +30,11 @@ test('init state should be AdvicerInitial', () {
 });
 
 group('AdviceRequestedEvent', () { 
-  final t_advice = AdviceEntity(advice: 'test', id: 1);
-  final t_advice_String = 'test';
+  final tAdvice = AdviceEntity(advice: 'test', id: 1);
+  const t_advice_String = 'test';
   test('should call usecase if event is added', () async {
     //arrange
-    when(mockAdvicerUsecases.getAdviceUsecase()).thenAnswer((_)async=>Right(t_advice));
+    when(mockAdvicerUsecases.getAdviceUsecase()).thenAnswer((_)async=>Right(tAdvice));
     //act
     advicerBloc.add(AdviceRequestedEvent());
     await untilCalled(mockAdvicerUsecases.getAdviceUsecase());
@@ -45,7 +45,7 @@ group('AdviceRequestedEvent', () {
 
   test('should emit loading then the loaded state after event is added', () async {
     //arrange
-    when(mockAdvicerUsecases.getAdviceUsecase()).thenAnswer((_)async=>Right(t_advice));
+    when(mockAdvicerUsecases.getAdviceUsecase()).thenAnswer((_)async=>Right(tAdvice));
     //assert later
     final expected = [
       AdvicerStateLoading(),

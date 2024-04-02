@@ -20,20 +20,18 @@ void main(){
   group('getCachedThemeDate', () { 
     test('should return a bool (themedata) if there is one in sharedpreferences', () async {
       //arrange
-      const t_themeData = true;
+      const tThemedata = true;
 
-      when(mockSharedPreferences.getBool(any)).thenReturn(t_themeData);
+      when(mockSharedPreferences.getBool(any)).thenReturn(tThemedata);
       //act
       final result = await themeLocalDatasource.getCachedThemeData();
       //assert
       verify(mockSharedPreferences.getBool(CACHED_THEME_MODE_KEY));
-      expect(result, t_themeData);
+      expect(result, tThemedata);
       verifyNoMoreInteractions(mockSharedPreferences);
     });
     test('should return a cache exception if there is no themedata in sharedpreferences', () async {
       //arrange
-      const t_themeData = true;
-
       when(mockSharedPreferences.getBool(any)).thenReturn(null);
       //act
       final resultCall = themeLocalDatasource.getCachedThemeData;
@@ -43,14 +41,14 @@ void main(){
   });
 
   group('cacheThemeData', () {
-         const t_themeData = true;
+         const tThemedata = true;
     test('should call sharedpreferences to cache thememode', () {
       //arrange
       when(mockSharedPreferences.setBool(any, any)).thenAnswer((_) async=> true);
       //act
-      themeLocalDatasource.cacheThemeData(mode: t_themeData);
+      themeLocalDatasource.cacheThemeData(mode: tThemedata);
       //assert
-      verify(mockSharedPreferences.setBool(CACHED_THEME_MODE_KEY, t_themeData));
+      verify(mockSharedPreferences.setBool(CACHED_THEME_MODE_KEY, tThemedata));
     });
 
    });

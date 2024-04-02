@@ -6,7 +6,7 @@ abstract class ThemeService extends ChangeNotifier{
 
   Future<void> toggleTheme();
 
-  Future<void> setTheme(@required bool mode);
+  Future<void> setTheme(bool mode);
 
   Future<void> init();
 
@@ -24,7 +24,7 @@ class ThemeServiceImpl extends ChangeNotifier implements ThemeService{
   Future<void> init() async {
 final  modeOrFailure = await themeRepository.getThemeMode();
 
-await modeOrFailure.fold((failure) {
+modeOrFailure.fold((failure) {
   setTheme(true);
 }, (mode) {
   setTheme(mode);

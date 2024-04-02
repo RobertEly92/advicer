@@ -12,7 +12,7 @@ void main() async {
   await di.init();
   await di.sl<ThemeService>().init();
   runApp(ChangeNotifierProvider(
-      create: (context) => di.sl<ThemeService>(), child: MainApp()));
+      create: (context) => di.sl<ThemeService>(), child: const MainApp()));
 }
 
 class MainApp extends StatelessWidget {
